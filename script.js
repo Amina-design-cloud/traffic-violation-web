@@ -11,7 +11,7 @@ function renderQuestion(containerId, questions, startId) {
       btn.textContent = opt.text;
       btn.onclick = () => {
         if (opt.result) {
-          container.innerHTML = `<h3>診斷結果</h3><p>${opt.result}</p><br><a href="index.html">← 回首頁</a>`;
+          container.innerHTML = `<h3>診斷結果</h3><p>${opt.result}</p><br><a href=\"index.html\">← 回首頁</a>`;
         } else {
           show(opt.next);
         }
