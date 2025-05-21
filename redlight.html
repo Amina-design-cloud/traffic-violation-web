@@ -5,12 +5,32 @@
   <title>闖紅燈判斷</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body onload="violation='redlight'; showQuestion()">
+<body>
   <div class="container">
-    <h2>闖紅燈是否成立？</h2>
-    <div id="question"></div>
-    <div class="buttons" id="buttons"></div>
+    <h1>🚦 闖紅燈</h1>
+    <div id="qa"></div>
   </div>
-  <script src="logic.js"></script>
+  <script src="script.js"></script>
+  <script>
+    const questions = {
+      q1: { text: "是否進入路口時號誌為黃燈？", options: [
+        { text: "是", result: "不構成闖紅燈（道交條例第53條）" },
+        { text: "否", next: "q2" }
+      ]},
+      q2: { text: "是否因前車壅塞卡在路中？", options: [
+        { text: "是", result: "可主張無意闖紅燈，建議佐證影片申訴" },
+        { text: "否", next: "q3" }
+      ]},
+      q3: { text: "號誌變換時間是否極短？", options: [
+        { text: "是", result: "可檢附影片申訴，主張合理預期原則" },
+        { text: "否", next: "q4" }
+      ]},
+      q4: { text: "有無錄影證據佐證？", options: [
+        { text: "有", result: "可提出行政復查（行程法第117條）" },
+        { text: "無", result: "申訴成功機率降低" }
+      ]},
+    };
+    renderQuestion("qa", questions, "q1");
+  </script>
 </body>
 </html>
