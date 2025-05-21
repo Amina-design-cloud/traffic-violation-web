@@ -2,15 +2,31 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>人行道停車判斷</title>
+  <title>人行道違停判斷</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body onload="violation='sidewalk'; showQuestion()">
+<body>
   <div class="container">
-    <h2>人行道 / 機車道停車是否違規？</h2>
-    <div id="question"></div>
-    <div class="buttons" id="buttons"></div>
+    <h1>🏍 人行道違停</h1>
+    <div id="qa"></div>
   </div>
-  <script src="logic.js"></script>
+  <script src="script.js"></script>
+  <script>
+    const questions = {
+      q1: { text: "停放位置是否有禁止標誌或標線？", options: [
+        { text: "否", result: "可主張標示不清（行程法第10條）" },
+        { text: "是", next: "q2" }
+      ]},
+      q2: { text: "是否短於3分鐘、駕駛未離車？", options: [
+        { text: "是", result: "可主張短暫臨停不構成違規" },
+        { text: "否", next: "q3" }
+      ]},
+      q3: { text: "是否阻礙其他用路人通行？", options: [
+        { text: "否", result: "可主張未妨礙通行，申訴具空間" },
+        { text: "是", result: "違規明確" }
+      ]},
+    };
+    renderQuestion("qa", questions, "q1");
+  </script>
 </body>
 </html>
