@@ -2,79 +2,53 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>判斷結果</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>診斷結果</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>判斷與建議結果</h2>
-  <div id="result"></div>
+  <div class="container">
+    <h2>違規診斷結果與建議</h2>
+    <div id="result"></div>
+  </div>
 
   <script>
-    const type = localStorage.getItem("violationType");
-    let output = "";
+    const type = localStorage.getItem("violation");
+    let content = "";
 
     if (type === "redline") {
-      output = `
+      content = `
         <h3>紅線停車</h3>
-        <p>若您臨停未超過 3 分鐘，駕駛未離車，且無妨礙交通，可主張合法臨停。</p>
-        <p><strong>法律依據：</strong>道路交通管理處罰條例第 56 條</p>
+        <p>若為短暫臨停、駕駛未離車、未妨礙交通，可依交通部解釋主張合法臨停。</p>
+        <p><strong>可主張法條：</strong>《道路交通管理處罰條例》第56條、《刑法》第23條（緊急避險）</p>
       `;
     } else if (type === "speeding") {
-      output = `
+      content = `
         <h3>超速</h3>
-        <p>若超速幅度在 10km/h 以內，且現場無明確速限標誌，可能具申訴空間。</p>
-        <p><strong>法律依據：</strong>道路交通管理處罰條例第 33 條</p>
+        <p>如超速幅度小、標誌不清或測速設備未設警示，有申訴空間。</p>
+        <p><strong>可主張法條：</strong>《道交條例》第33條、《行政程序法》第10條</p>
       `;
     } else if (type === "redlight") {
-      output = `
+      content = `
         <h3>闖紅燈</h3>
-        <p>若您進入路口時為黃燈，且未造成危險，有機會提出合理解釋。</p>
-        <p><strong>法律依據：</strong>道路交通管理處罰條例第 53 條</p>
+        <p>若進入路口時為黃燈，或因擁堵誤判，可檢附行車記錄器說明。</p>
+        <p><strong>可主張法條：</strong>《道交條例》第53條、《行政程序法》第39條</p>
       `;
-    } else {
-      output = "<p>無法判斷違規類型，請返回重新選擇。</p>";
+    } else if (type === "twoturn") {
+      content = `
+        <h3>機車未兩段式左轉</h3>
+        <p>如現場未明確標示兩段式左轉，或號誌不清，具申訴空間。</p>
+        <p><strong>可主張法條：</strong>《道交條例》第48條、《行政程序法》第10條</p>
+      `;
+    } else if (type === "sidewalk") {
+      content = `
+        <h3>停在人行道 / 機車道</h3>
+        <p>如未妨礙通行、未離車、停車時間短，屬合理臨停。</p>
+        <p><strong>可主張法條：</strong>《道交條例》第56條、《行政程序法》第39條</p>
+      `;
     }
 
-    document.getElementById("result").innerHTML = output;
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8">
-  <title>判斷結果</title>
-</head>
-<body>
-  <h2>判斷與建議結果</h2>
-  <div id="result"></div>
-
-  <script>
-    const type = localStorage.getItem("violationType");
-    let output = "";
-
-    if (type === "redline") {
-      output = `
-        <h3>紅線停車</h3>
-        <p>若您臨停未超過 3 分鐘，駕駛未離車，且無妨礙交通，可主張合法臨停。</p>
-        <p><strong>法律依據：</strong>道路交通管理處罰條例第 56 條</p>
-      `;
-    } else if (type === "speeding") {
-      output = `
-        <h3>超速</h3>
-        <p>若超速幅度在 10km/h 以內，且現場無明確速限標誌，可能具申訴空間。</p>
-        <p><strong>法律依據：</strong>道路交通管理處罰條例第 33 條</p>
-      `;
-    } else if (type === "redlight") {
-      output = `
-        <h3>闖紅燈</h3>
-        <p>若您進入路口時為黃燈，且未造成危險，有機會提出合理解釋。</p>
-        <p><strong>法律依據：</strong>道路交通管理處罰條例第 53 條</p>
-      `;
-    } else {
-      output = "<p>無法判斷違規類型，請返回重新選擇。</p>";
-    }
-
-    document.getElementById("result").innerHTML = output;
+    document.getElementById("result").innerHTML = content;
   </script>
 </body>
 </html>
