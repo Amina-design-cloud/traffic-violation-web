@@ -5,27 +5,12 @@
   <title>闖紅燈判斷</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="violation='redlight'; showQuestion()">
   <div class="container">
     <h2>闖紅燈是否成立？</h2>
-    <ol>
-      <li>通過路口時是否為黃燈？
-        <ul>
-          <li>→ 是 → 不構成闖紅燈，依《道交條例》第53條</li>
-        </ul>
-      </li>
-      <li>是否為號誌轉換過快導致誤判？
-        <ul>
-          <li>→ 是 → 可主張《行政程序法》第39條，要求合理審酌</li>
-        </ul>
-      </li>
-      <li>有無擁塞造成車輛卡在路中？
-        <ul>
-          <li>→ 是 → 可附行車記錄器佐證合理誤入</li>
-        </ul>
-      </li>
-    </ol>
-    <a href="index.html">← 回首頁</a>
+    <div id="question"></div>
+    <div class="buttons" id="buttons"></div>
   </div>
+  <script src="logic.js"></script>
 </body>
 </html>
