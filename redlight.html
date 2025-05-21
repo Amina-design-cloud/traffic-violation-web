@@ -13,22 +13,22 @@
   <script src="script.js"></script>
   <script>
     const questions = {
-      q1: { text: "是否進入路口時號誌為黃燈？", options: [
-        { text: "是", result: "不構成闖紅燈（道交條例第53條）" },
+      q1: { text: "進入路口時是否仍為黃燈？", options: [
+        { text: "是", result: "✅ 不構成違規（道交條例第53條）" },
         { text: "否", next: "q2" }
       ]},
-      q2: { text: "是否因前車壅塞卡在路中？", options: [
-        { text: "是", result: "可主張無意闖紅燈，建議佐證影片申訴" },
+      q2: { text: "是否因前車壅塞導致停在路中？", options: [
+        { text: "是", result: "✅ 可主張無意闖燈，建議佐證影片" },
         { text: "否", next: "q3" }
       ]},
-      q3: { text: "號誌變換時間是否極短？", options: [
-        { text: "是", result: "可檢附影片申訴，主張合理預期原則" },
+      q3: { text: "號誌轉換是否極快不合理？", options: [
+        { text: "是", result: "✅ 可主張信賴保護原則申訴" },
         { text: "否", next: "q4" }
       ]},
-      q4: { text: "有無錄影證據佐證？", options: [
-        { text: "有", result: "可提出行政復查（行程法第117條）" },
-        { text: "無", result: "申訴成功機率降低" }
-      ]},
+      q4: { text: "是否有影像紀錄佐證？", options: [
+        { text: "有", result: "✅ 可提出行政復查（行程法第117條）" },
+        { text: "無", result: "🔺 無證據申訴成功機率較低" }
+      ]}
     };
     renderQuestion("qa", questions, "q1");
   </script>
