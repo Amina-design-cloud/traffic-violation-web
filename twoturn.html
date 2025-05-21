@@ -2,25 +2,15 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>機車左轉判斷</title>
+  <title>兩段式左轉判斷</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="violation='twoturn'; showQuestion()">
   <div class="container">
     <h2>機車未兩段式左轉</h2>
-    <ol>
-      <li>路口是否有清楚標示需兩段式左轉？
-        <ul>
-          <li>→ 否 → 可主張《標誌設置規則》第23條，未公告不得罰</li>
-        </ul>
-      </li>
-      <li>是否為導航誤導、不熟地形？
-        <ul>
-          <li>→ 是 → 可主張信賴保護原則</li>
-        </ul>
-      </li>
-    </ol>
-    <a href="index.html">← 回首頁</a>
+    <div id="question"></div>
+    <div class="buttons" id="buttons"></div>
   </div>
+  <script src="logic.js"></script>
 </body>
 </html>
