@@ -14,23 +14,23 @@
   <script>
     const questions = {
       q1: { text: "超速幅度是否在10km/h以內？", options: [
-        { text: "是", result: "✅ 可主張設備誤差 ±3%，依《度量衡法》" },
+        { text: "是", result: "✅ 可主張設備誤差 ±3%，依《度量衡法》與設備規範" },
         { text: "否", next: "q2" }
       ]},
       q2: { text: "是否有明確速限標誌？", options: [
-        { text: "否", result: "✅ 可主張資訊未揭示（行程法第10條）" },
+        { text: "否", result: "✅ 可主張資訊未揭示（《行政程序法》第10條）" },
         { text: "是", next: "q3" }
       ]},
       q3: { text: "測速點前是否有警告標誌？", options: [
-        { text: "否", result: "✅ 違反設標規則第151條，應設警示" },
+        { text: "否", result: "✅ 違反《設標條》第151條，應有警告標誌" },
         { text: "是", next: "q4" }
       ]},
       q4: { text: "是否因閃避障礙物而加速？", options: [
-        { text: "是", result: "✅ 緊急避險（刑法第23條）" },
+        { text: "是", result: "✅ 可主張《刑法》第23條「緊急避險」行為不罰" },
         { text: "否", next: "q5" }
       ]},
       q5: { text: "有無影像證據可佐證？", options: [
-        { text: "有", result: "✅ 可申請撤銷（行程法第39條）" },
+        { text: "有", result: "✅ 可依《行政程序法》第39條申請重新審議" },
         { text: "無", result: "🔺 舉證困難，建議補強證據" }
       ]}
     };
