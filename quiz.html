@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>違規診斷問答</title>
+</head>
+<body>
+  <h2>請選擇您的違規類型</h2>
+  <form id="quizForm">
+    <label for="violation">違規類型：</label>
+    <select id="violation" name="violation">
+      <option value="redline">紅線停車</option>
+      <option value="speeding">超速</option>
+      <option value="redlight">闖紅燈</option>
+    </select>
+    <br><br>
+    <button type="submit">送出並查看結果</button>
+  </form>
+
+  <script>
+    document.getElementById("quizForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const violation = document.getElementById("violation").value;
+      localStorage.setItem("violationType", violation);
+      window.location.href = "result.html";
+    });
+  </script>
+</body>
+</html>
