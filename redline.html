@@ -5,12 +5,40 @@
   <title>紅線停車判斷</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body onload="violation='redline'; showQuestion()">
+<body>
   <div class="container">
-    <h2>紅線停車判斷</h2>
-    <div id="question"></div>
-    <div class="buttons" id="buttons"></div>
+    <h1>🚗 紅線停車</h1>
+    <div id="qa"></div>
   </div>
-  <script src="logic.js"></script>
+  <script src="script.js"></script>
+  <script>
+    const questions = {
+      q1: { text: "停車地點是否有紅線標示？", options: [
+        { text: "否", result: "不構成違規，可主張標線不明確（設標條第3條）" },
+        { text: "是", next: "q2" }
+      ]},
+      q2: { text: "是否僅短暫臨停（3分鐘內）？", options: [
+        { text: "否", result: "可能違反《道交條例》第56條" },
+        { text: "是", next: "q3" }
+      ]},
+      q3: { text: "駕駛是否留在車上？", options: [
+        { text: "否", result: "駕駛離車即視為停車，可能違規" },
+        { text: "是", next: "q4" }
+      ]},
+      q4: { text: "是否阻礙其他車輛或行人？", options: [
+        { text: "是", result: "即使臨停亦不得妨礙通行（第56條）" },
+        { text: "否", next: "q5" }
+      ]},
+      q5: { text: "是否為緊急情況（送醫、故障）？", options: [
+        { text: "是", result: "可主張緊急避險（刑法第23條）" },
+        { text: "否", next: "q6" }
+      ]},
+      q6: { text: "是否有行車紀錄器或現場證據？", options: [
+        { text: "有", result: "可依《行程法》第39條提出證據申訴" },
+        { text: "無", result: "舉證困難，建議補強證據再申訴" }
+      ]},
+    };
+    renderQuestion("qa", questions, "q1");
+  </script>
 </body>
 </html>
