@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .container {
   max-width: 600px;
   margin: 80px auto;
@@ -13,18 +14,36 @@ body {
   box-shadow: 0 0 12px rgba(0,0,0,0.1);
   text-align: center;
 }
+
 h1 {
   color: #003366;
 }
-p {
-  font-size: 18px;
-  margin: 20px 0;
+
+.menu {
+  list-style: none;
+  padding: 0;
 }
+.menu li {
+  margin: 15px 0;
+}
+.menu a {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #3399ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+}
+.menu a:hover {
+  background-color: #007acc;
+}
+
 .buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  margin-top: 20px;
 }
 button {
   width: 100px;
@@ -39,9 +58,8 @@ button {
 button:hover {
   background-color: #007acc;
 }
+
 a {
-  display: inline-block;
-  margin-top: 20px;
   color: #007acc;
   text-decoration: none;
 }
