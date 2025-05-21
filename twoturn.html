@@ -5,12 +5,28 @@
   <title>兩段式左轉判斷</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body onload="violation='twoturn'; showQuestion()">
+<body>
   <div class="container">
-    <h2>機車未兩段式左轉</h2>
-    <div id="question"></div>
-    <div class="buttons" id="buttons"></div>
+    <h1>🛵 兩段式左轉</h1>
+    <div id="qa"></div>
   </div>
-  <script src="logic.js"></script>
+  <script src="script.js"></script>
+  <script>
+    const questions = {
+      q1: { text: "路口是否設有兩段式左轉標誌？", options: [
+        { text: "否", result: "可主張指示不明（設標條第23條）" },
+        { text: "是", next: "q2" }
+      ]},
+      q2: { text: "是否因導航誤導或不熟路況？", options: [
+        { text: "是", result: "可主張誤信行政指示（行程法第10條）" },
+        { text: "否", next: "q3" }
+      ]},
+      q3: { text: "是否造成交通危害或阻礙？", options: [
+        { text: "否", result: "可請求寬容處理（比例原則）" },
+        { text: "是", result: "違規明確" }
+      ]},
+    };
+    renderQuestion("qa", questions, "q1");
+  </script>
 </body>
 </html>
