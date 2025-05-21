@@ -13,18 +13,18 @@
   <script src="script.js"></script>
   <script>
     const questions = {
-      q1: { text: "停放位置是否有禁止標誌或標線？", options: [
-        { text: "否", result: "可主張標示不清（行程法第10條）" },
+      q1: { text: "停車處是否有禁止標示？", options: [
+        { text: "否", result: "✅ 可主張標示不清（行程法第10條）" },
         { text: "是", next: "q2" }
       ]},
-      q2: { text: "是否短於3分鐘、駕駛未離車？", options: [
-        { text: "是", result: "可主張短暫臨停不構成違規" },
+      q2: { text: "是否短停 3 分鐘內且未離車？", options: [
+        { text: "是", result: "✅ 可主張臨停例外，依交通部函釋" },
         { text: "否", next: "q3" }
       ]},
-      q3: { text: "是否阻礙其他用路人通行？", options: [
-        { text: "否", result: "可主張未妨礙通行，申訴具空間" },
-        { text: "是", result: "違規明確" }
-      ]},
+      q3: { text: "是否阻礙他人通行？", options: [
+        { text: "否", result: "✅ 可主張無妨礙通行，申訴具空間" },
+        { text: "是", result: "🔺 違規明確，建議勿爭辯" }
+      ]}
     };
     renderQuestion("qa", questions, "q1");
   </script>
