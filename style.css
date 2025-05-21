@@ -1,50 +1,35 @@
 body {
   font-family: "Noto Sans TC", sans-serif;
-  background-color: #f8f9fa;
+  background-color: #f4f6f9;
   margin: 0;
   padding: 0;
 }
 .container {
-  max-width: 700px;
-  margin: 60px auto;
+  max-width: 600px;
+  margin: 80px auto;
   padding: 30px;
   background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
   text-align: center;
 }
-h1, h2 {
-  color: #1d3557;
+h1 {
+  color: #003366;
 }
 p {
   font-size: 18px;
-}
-.menu {
-  list-style: none;
-  padding: 0;
-}
-.menu li {
-  margin: 10px 0;
-}
-.menu a {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #0078D7;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-}
-.menu a:hover {
-  background-color: #005bb5;
+  margin: 20px 0;
 }
 .buttons {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 button {
   width: 100px;
   height: 50px;
   font-size: 18px;
-  margin: 10px;
   background-color: #3399ff;
   color: white;
   border: none;
@@ -52,6 +37,14 @@ button {
   cursor: pointer;
 }
 button:hover {
-  background-color: #0077cc;
+  background-color: #007acc;
 }
-
+a {
+  display: inline-block;
+  margin-top: 20px;
+  color: #007acc;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
