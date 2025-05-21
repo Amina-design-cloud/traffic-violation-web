@@ -5,12 +5,36 @@
   <title>超速判斷</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body onload="violation='speeding'; showQuestion()">
+<body>
   <div class="container">
-    <h2>超速違規判斷</h2>
-    <div id="question"></div>
-    <div class="buttons" id="buttons"></div>
+    <h1>🚓 超速</h1>
+    <div id="qa"></div>
   </div>
-  <script src="logic.js"></script>
+  <script src="script.js"></script>
+  <script>
+    const questions = {
+      q1: { text: "超速幅度是否在10km/h以內？", options: [
+        { text: "是", result: "可主張設備誤差 ±3%（度量衡法）" },
+        { text: "否", next: "q2" }
+      ]},
+      q2: { text: "路段是否設有明確速限標誌？", options: [
+        { text: "否", result: "可主張未充分告知（行程法第10條）" },
+        { text: "是", next: "q3" }
+      ]},
+      q3: { text: "測速設備前有警告標誌嗎？", options: [
+        { text: "否", result: "違反設標條第151條，應設警告標誌" },
+        { text: "是", next: "q4" }
+      ]},
+      q4: { text: "是否因突發狀況臨時超速？", options: [
+        { text: "是", result: "可主張緊急避險（刑法第23條）" },
+        { text: "否", next: "q5" }
+      ]},
+      q5: { text: "是否有影像紀錄可佐證？", options: [
+        { text: "有", result: "可依《行程法》第39條申請重新審議" },
+        { text: "無", result: "難以推翻罰單事實" }
+      ]},
+    };
+    renderQuestion("qa", questions, "q1");
+  </script>
 </body>
 </html>
